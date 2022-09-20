@@ -500,10 +500,10 @@ func main() {
 	} else {
 		if( len(u.Subdomain) == 0 ) {
 			config.search = u.Domain + "." + u.TLD
-			config.DomainRegexp = regexp.MustCompile( `(?i)(([0-9a-z\-\.]+)\.)?` + u.Domain + "." + u.TLD )
+			config.DomainRegexp = regexp.MustCompile( `(?i)(([0-9a-z\-\.]+)\.)?` + u.Domain + "\\." + u.TLD )
 		} else {
 			config.search = u.Subdomain + "." + u.Domain + "." + u.TLD
-			config.DomainRegexp = regexp.MustCompile( `(?i)(([0-9a-z\-\.]+)\.)?` + u.Subdomain + "." + u.Domain + "." + u.TLD )
+			config.DomainRegexp = regexp.MustCompile( `(?i)(([0-9a-z\-\.]+)\.)?` + u.Subdomain + "\\." + u.Domain + "\\." + u.TLD )
 		}
 	}
 	// fmt.Println(config.search)
