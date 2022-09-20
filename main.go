@@ -493,7 +493,6 @@ func main() {
 		config.search = u.Domain
 		config.DomainRegexp = regexp.MustCompile( `(?i)([0-9a-z\-\.]+\.)?([0-9a-z\-]+)?`+u.Domain+`([0-9a-z\-\.]+)?\.[a-z]{1,5}`)
 	} else {
-		// config.search = u.Subdomain + "." + u.Domain + "." + u.TLD
 		if( len(u.Subdomain) == 0 ) {
 			config.search = u.Domain + "." + u.TLD
 			config.DomainRegexp = regexp.MustCompile( `(?i)(([0-9a-z\-\.]+)\.)?` + u.Domain + "." + u.TLD )
