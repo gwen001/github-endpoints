@@ -404,7 +404,11 @@ func doItem(i item) {
 								if err != nil {
 									continue
 								}
-								var domain = strings.ToLower( u.Subdomain+"."+u.Domain+"."+u.TLD )
+								if( len(u.Subdomain) == 0 ) {
+									var domain = strings.ToLower( u.Domain+"."+u.TLD )
+								} else {
+									var domain = strings.ToLower( u.Subdomain+"."+u.Domain+"."+u.TLD )
+								}
 								// fmt.Println(domain)
 								// fmt.Println( len(performRegexp(domain,config.DomainRegexp)) )
 								if len(performRegexp(domain,config.DomainRegexp)) <= 0 {
