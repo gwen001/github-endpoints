@@ -404,7 +404,7 @@ func doItem(i item) {
 								if err != nil {
 									continue
 								}
-								var domain = strings.ToLower( u.Domain+"."+u.TLD )
+								var domain = strings.ToLower( u.Subdomain+"."+u.Domain+"."+u.TLD )
 								// fmt.Println(domain)
 								// fmt.Println( len(performRegexp(domain,config.DomainRegexp)) )
 								if len(performRegexp(domain,config.DomainRegexp)) <= 0 {
@@ -486,14 +486,25 @@ func main() {
 	// defer fp.Close()
 
 	u, _ := tld.Parse("http://"+config.domain)
+	// fmt.Println(u.Domain)
+	// fmt.Println(u.Subdomain)
 
 	if config.extend {
 		config.search = u.Domain
 		config.DomainRegexp = regexp.MustCompile( `(?i)([0-9a-z\-\.]+\.)?([0-9a-z\-]+)?`+u.Domain+`([0-9a-z\-\.]+)?\.[a-z]{1,5}`)
 	} else {
-		config.search = u.Domain + "." + u.TLD
-		config.DomainRegexp = regexp.MustCompile( `(?i)(([0-9a-z\-\.]+)\.)?` + u.Domain + "\\." + u.TLD )
+		// config.search = u.Subdomain + "." + u.Domain + "." + u.TLD
+		if( len(u.Subdomain) == 0 ) {
+			config.search = u.Domain + "." + u.TLD
+			config.DomainRegexp = regexp.MustCompile( `(?i)(([0-9a-z\-\.]+)\.)?` + u.Domain + "." + u.TLD )
+		} else {
+			config.search = u.Subdomain + "." + u.Domain + "." + u.TLD
+			config.DomainRegexp = regexp.MustCompile( `(?i)(([0-9a-z\-\.]+)\.)?` + u.Subdomain + "." + u.Domain + "." + u.TLD )
+		}
 	}
+	// fmt.Println(config.search)
+	// fmt.Println(config.DomainRegexp)
+	// os.Exit(-1)
 
 	config.search = "%22" + strings.ReplaceAll(url.QueryEscape(config.search), "-", "%2D") + "%22"
 
