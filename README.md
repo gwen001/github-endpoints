@@ -6,7 +6,7 @@ Find endpoints on GitHub.
 # Install
 
 ```
-go get -u github.com/gwen001/github-endpoints
+go install github.com/gwen001/github-endpoints@latest
 ```
 
 or
@@ -69,6 +69,9 @@ You can disable that feature by using the option `-k`.
 
 
 # Changelog
+
+**20/09/2022**
+- fix regexp for subdomains
 
 **25/09/2020**
 - quick mode added
