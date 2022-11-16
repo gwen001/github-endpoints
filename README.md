@@ -25,7 +25,7 @@ go install
 # Usage
 
 ```
-github-endpoints -h
+$ github-endpoints -h
 
 Usage of github-endpoints:
   -all
