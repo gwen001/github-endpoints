@@ -16,7 +16,7 @@
 
 ---
 
-# Install
+## Install
 
 ```
 go install github.com/gwen001/github-endpoints@latest
@@ -30,7 +30,7 @@ cd github-endpoints
 go install
 ```
 
-# Usage
+## Usage
 
 ```
 $ github-endpoints -h
@@ -51,7 +51,7 @@ Usage of github-endpoints:
     	github token (required), can be:
     	  • a single token
     	  • a list of tokens separated by comma
-    	  • a file containing 1 token per line
+    	  • a file (.tokens) containing 1 token per line
     	if the options is not provided, the environment variable GITHUB_TOKEN is readed, it can be:
     	  • a single token
     	  • a list of tokens separated by comma
@@ -73,12 +73,12 @@ You can disable that feature by using the option `-k`.
 
 <img src="https://github.com/gwen001/github-endpoints/raw/master/preview.png">
 
-# Todo
+## Todo
 
 - change the order of the extra searches ?
 - ?
 
-# Changelog
+## Changelog
 
 **20/09/2022**
 - fix regexp for subdomains
