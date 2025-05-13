@@ -657,7 +657,7 @@ func main() {
 	}
 
 	PrintInfos( "", fmt.Sprintf("%d searches performed",n_search) )
-	PrintInfos( "", fmt.Sprintf("%d subdomains found",len(t_endpoints)) )
+	PrintInfos( "", fmt.Sprintf("%d endpoints found",len(t_endpoints)) )
 }
 
 
